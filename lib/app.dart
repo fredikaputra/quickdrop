@@ -14,9 +14,10 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(AppColors.background),
-          title: const Text(
+          title: Text(
             AppTexts.title,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, color: lighten(Colors.black, 30)),
           ),
           actions: [
             SizedBox(
@@ -76,8 +77,7 @@ class App extends StatelessWidget {
                     style: ButtonStyle(
                       backgroundColor:
                           WidgetStateProperty.all(const Color(AppColors.blue)),
-                      foregroundColor: WidgetStateProperty.all(
-                          const Color(AppColors.softDark)),
+                      foregroundColor: WidgetStateProperty.all(Colors.white),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
@@ -91,9 +91,10 @@ class App extends StatelessWidget {
                       child: Column(
                         children: [
                           Icon(
-                            Icons.upload,
-                            size: 30,
+                            Icons.cloud_upload,
+                            size: 50,
                           ),
+                          SizedBox(height: 10),
                           Text(
                             'Upload',
                             style: TextStyle(
@@ -112,9 +113,8 @@ class App extends StatelessWidget {
                     onPressed: () => {},
                     style: ButtonStyle(
                       backgroundColor:
-                          WidgetStateProperty.all(const Color(AppColors.blue)),
-                      foregroundColor: WidgetStateProperty.all(
-                          const Color(AppColors.softDark)),
+                          WidgetStateProperty.all(const Color(0xFFB67352)),
+                      foregroundColor: WidgetStateProperty.all(Colors.white),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
@@ -128,11 +128,12 @@ class App extends StatelessWidget {
                       child: Column(
                         children: [
                           Icon(
-                            Icons.upload,
-                            size: 30,
+                            Icons.cloud_download,
+                            size: 50,
                           ),
+                          SizedBox(height: 10),
                           Text(
-                            'Upload',
+                            'Download',
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -176,14 +177,14 @@ class App extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Shared File',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: lighten(Colors.black, 40)),
                 ),
               ),
               const SizedBox(
@@ -193,7 +194,7 @@ class App extends StatelessWidget {
                 File(
                     imageUrl:
                         'https://cdn-icons-png.flaticon.com/512/4404/4404094.png',
-                    name: 'Animal Video',
+                    name: 'Cooking Video',
                     size: '512 MB',
                     type: 'Video'),
                 File(
@@ -270,16 +271,22 @@ class TotalData extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
       child: Row(
         children: [
-          Icon(icon),
+          Icon(
+            icon,
+            color: lighten(Colors.black, 40),
+          ),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 label,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: lighten(Colors.black, 40)),
               ),
-              Text('$total files'),
+              Text('$total files',
+                  style: TextStyle(color: lighten(Colors.black, 40))),
             ],
           ),
         ],
@@ -301,10 +308,23 @@ class FileList extends StatelessWidget {
         itemBuilder: (context, index) {
           final file = files[index];
           return ListTile(
-            leading: Image.network(file.imageUrl),
-            title: Text(file.name),
-            subtitle: Text('${file.type} | ${file.size}'),
-            trailing: const Icon(Icons.more_vert),
+            leading: SizedBox(
+              width: 50,
+              height: 50,
+              child: Image.network(file.imageUrl),
+            ),
+            title: Text(
+              file.name,
+              style: TextStyle(
+                  color: lighten(Colors.black, 30),
+                  fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text('${file.type} | ${file.size}',
+                style: TextStyle(color: lighten(Colors.black, 30))),
+            trailing: Icon(
+              Icons.more_vert,
+              color: lighten(Colors.black, 30),
+            ),
           );
         },
       ),
