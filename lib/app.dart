@@ -153,11 +153,15 @@ class App extends StatelessWidget {
                     children: [
                       Expanded(
                           child: TotalData(
-                              icon: Icons.folder, label: 'Folders', total: 10)),
+                              icon: Icons.video_collection_rounded,
+                              label: 'Video',
+                              total: 10)),
                       SizedBox(width: 10),
                       Expanded(
                           child: TotalData(
-                              icon: Icons.file_copy, label: 'Files', total: 20))
+                              icon: Icons.audiotrack_rounded,
+                              label: 'Audio',
+                              total: 20))
                     ],
                   ),
                   SizedBox(height: 10),
@@ -165,11 +169,15 @@ class App extends StatelessWidget {
                     children: [
                       Expanded(
                           child: TotalData(
-                              icon: Icons.person, label: 'Users', total: 30)),
+                              icon: Icons.text_snippet_rounded,
+                              label: 'Text File',
+                              total: 30)),
                       SizedBox(width: 10),
                       Expanded(
                           child: TotalData(
-                              icon: Icons.group, label: 'Groups', total: 40))
+                              icon: Icons.insert_drive_file_rounded,
+                              label: 'Other',
+                              total: 40))
                     ],
                   ),
                 ],
