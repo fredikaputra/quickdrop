@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-
 class AppColors {
-  static const background = 0xFFFEFBF6;
-  static const softDark = 0xFFF0F0F0;
-  static const textSoftDark = 0xFF505050;
-  static const blue = 0xFF8CB9BD;
+  static const primary = 0xFFA25772;
+  static const secondary = 0xFF7C93C3;
+  static const tertiary = 0xFF9EB8D9;
+  static const quaternary = 0xFFEEF5FF;
 }
