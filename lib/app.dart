@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quickdrop/components/account.dart';
 import 'package:quickdrop/components/detail_summary.dart';
 import 'package:quickdrop/components/main_button.dart';
 import 'package:quickdrop/components/files.dart';
@@ -25,11 +26,22 @@ class App extends StatelessWidget {
                 fontWeight: FontWeight.bold, color: lighten(Colors.black, 30)),
           ),
           actions: [
-            SizedBox(
-                width: 90,
-                child: Image.network(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFK3aGpbIrBzfqB1Fxq8BNMfZJu70SwwhzwQ&s',
-                )),
+            Builder(builder: (BuildContext context) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Account()),
+                  );
+                },
+                child: SizedBox(
+                  width: 90,
+                  child: Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFK3aGpbIrBzfqB1Fxq8BNMfZJu70SwwhzwQ&s',
+                  ),
+                ),
+              );
+            }),
           ],
         ),
         body: const Padding(
