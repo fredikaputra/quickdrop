@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quickdrop/components/detail_file.dart';
 import 'package:quickdrop/helper.dart';
 
 class Files extends StatelessWidget {
@@ -64,6 +65,10 @@ class FileList extends StatelessWidget {
         itemBuilder: (context, index) {
           final file = files[index];
           return ListTile(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailFile(file: file))),
             leading: SizedBox(
               width: 50,
               height: 50,
