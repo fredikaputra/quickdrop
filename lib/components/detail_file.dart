@@ -1,9 +1,13 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:quickdrop/components/delete_file.dart';
 import 'package:quickdrop/components/files.dart';
 import 'package:quickdrop/components/update_file.dart';
 import 'package:quickdrop/const/colors.dart';
 import 'package:quickdrop/helper.dart';
+import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailFile extends StatelessWidget {
   const DetailFile({
@@ -87,12 +91,32 @@ class DetailFile extends StatelessWidget {
                       const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.share,
-                        onPressed: () {},
+                        onPressed: () {
+                          Share.share('https://example.com',
+                              subject: 'Check out this link');
+                        },
                       ),
                       const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.download_sharp,
-                        onPressed: () {},
+                        onPressed: () async {
+                          final Uri url = Uri.parse(
+                              'https://vscode.download.prss.microsoft.com/dbazure/download/stable/5437499feb04f7a586f677b155b039bc2b3669eb/VSCodeUserSetup-x64-1.90.2.exe');
+
+                          Fluttertoast.showToast(
+                            msg: "This is a toast message",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            textColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            fontSize: 16.0,
+                          );
+
+                          if (!await launchUrl(url)) {
+                            throw Exception('Could not launch $url');
+                          }
+                        },
                       ),
                     ],
                   )
