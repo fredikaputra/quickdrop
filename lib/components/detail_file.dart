@@ -62,7 +62,27 @@ class DetailFile extends StatelessWidget {
                       const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.remove_red_eye,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => Scaffold(
+                                appBar: AppBar(
+                                  title: const Text('View'),
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: darken(Colors.white),
+                                ),
+                                body: Container(
+                                  color: Colors.black,
+                                  child: Center(
+                                    child: Image.network(
+                                      'https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/w/o/WOPA160517_D056-resized.jpg?crop=864%2C0%2C1728%2C2304&wid=600&hei=800&scl=2.88',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(width: 10),
                       ButtonAction(
