@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quickdrop/enums/file_download_limit.dart';
 import 'package:quickdrop/enums/file_expiration.dart';
 
 class UpdateFile extends StatefulWidget {
@@ -13,7 +14,10 @@ class UpdateFile extends StatefulWidget {
 class _UpdateFileState extends State<UpdateFile> {
   final TextEditingController expirationFileController =
       TextEditingController();
+  final TextEditingController fileDownloadLimitController =
+      TextEditingController();
   FileExpiration? selectedFileExpiration;
+  FileDownloadLimit? selectedFileDownloadLimit;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +42,26 @@ class _UpdateFileState extends State<UpdateFile> {
               return DropdownMenuEntry<FileExpiration>(
                 value: expiration,
                 label: expiration.label,
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 15),
+          DropdownMenu<FileDownloadLimit>(
+            expandedInsets: EdgeInsets.zero,
+            initialSelection: FileDownloadLimit.one,
+            controller: fileDownloadLimitController,
+            label: const Text('Download Limit'),
+            onSelected: (FileDownloadLimit? fileDownloadLimit) {
+              setState(() {
+                selectedFileDownloadLimit = fileDownloadLimit;
+              });
+            },
+            dropdownMenuEntries: FileDownloadLimit.values
+                .map<DropdownMenuEntry<FileDownloadLimit>>(
+                    (FileDownloadLimit limit) {
+              return DropdownMenuEntry<FileDownloadLimit>(
+                value: limit,
+                label: limit.label,
               );
             }).toList(),
           ),
