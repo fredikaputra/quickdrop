@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quickdrop/components/delete_file.dart';
 import 'package:quickdrop/components/files.dart';
 import 'package:quickdrop/components/update_file.dart';
 import 'package:quickdrop/const/colors.dart';
@@ -53,7 +54,10 @@ class DetailFile extends StatelessWidget {
                       const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.delete,
-                        onPressed: () {},
+                        onPressed: () => showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const DeleteFile()),
                       ),
                       const SizedBox(width: 10),
                       ButtonAction(
