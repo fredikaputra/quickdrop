@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quickdrop/components/files.dart';
-import 'package:quickdrop/components/subtitle.dart';
+import 'package:quickdrop/components/update_file.dart';
 import 'package:quickdrop/const/colors.dart';
 import 'package:quickdrop/helper.dart';
 
@@ -41,26 +41,34 @@ class DetailFile extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Row(
+                  Row(
                     children: [
                       ButtonAction(
                         icon: Icons.edit,
+                        onPressed: () => showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const UpdateFile()),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.delete,
+                        onPressed: () {},
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.remove_red_eye,
+                        onPressed: () {},
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.share,
+                        onPressed: () {},
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       ButtonAction(
                         icon: Icons.download_sharp,
+                        onPressed: () {},
                       ),
                     ],
                   )
@@ -160,15 +168,17 @@ class ButtonAction extends StatelessWidget {
   const ButtonAction({
     super.key,
     required this.icon,
+    required this.onPressed,
   });
 
   final IconData icon;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white,
         foregroundColor: lighten(Colors.black, 40),
