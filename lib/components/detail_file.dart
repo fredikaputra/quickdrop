@@ -101,7 +101,7 @@ class DetailFile extends StatelessWidget {
                         icon: Icons.download_sharp,
                         onPressed: () async {
                           final Uri url = Uri.parse(
-                              'https://unsplash.com/photos/zlYUCmArB38/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzE4ODcxMjg0fA&force=true');
+                              'https://unsplash.com/photos/DXnEvx_6pPM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzE5MTMxMDcxfA&force=true');
 
                           Fluttertoast.showToast(
                             msg: "This is a toast message",

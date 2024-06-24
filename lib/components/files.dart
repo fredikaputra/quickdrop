@@ -82,10 +82,6 @@ class FileList extends StatelessWidget {
             ),
             subtitle: Text('${file.type} | ${file.size}',
                 style: TextStyle(color: lighten(Colors.black, 30))),
-            trailing: Icon(
-              Icons.more_vert,
-              color: lighten(Colors.black, 30),
-            ),
           );
         },
       ),
